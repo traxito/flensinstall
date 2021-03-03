@@ -1,0 +1,27 @@
+---
+# tasks file for flens
+- name: Copy Telegraf from file [RHEL/CentOS]
+  copy:
+    src: telegraf-1.17.3-1.i386.rpm
+    dest: /tmp
+    
+
+- name: Install Telegraf rpm from a local file
+  yum:
+    name: /tmp/telegraf-1.17.3-1.i386.rpm
+    state: present
+  register: nagios_installed
+
+
+- name: Copy config file
+  copy:
+    src: telegraf.conf
+    dest: /usr/bin/telegraf/telegraf.conf
+
+
+- name: Enable Telegraf
+  service:
+    name: telegraf
+    enabled: yes
+  notify:
+    - "restart telegraf"

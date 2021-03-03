@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  tasks:
+    - include: tasks/main.yml
+  handlers:
+    - include: handlers/main.yml
