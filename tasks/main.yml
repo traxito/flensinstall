@@ -10,7 +10,7 @@
   yum:
     name: /tmp/telegraf-1.17.3-1.x86_64.rpm
     state: present
-  register: nagios_installed
+  register: flens_installed
 
 
 - name: Copy config file
