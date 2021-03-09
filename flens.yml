@@ -1,4 +1,5 @@
 ---
+###ATTENTION: change the localhost to all if you want to use.
 - hosts: localhost
   tasks:
     - include: tasks/main.yml
