@@ -2,7 +2,7 @@
 # tasks file for flens
 - name: Copy Telegraf from file [RHEL/CentOS]
   copy:
-    src: telegraf-1.17.3-1.i386.rpm
+    src: telegraf-1.17.3-1.x86_64.rpm
     dest: /tmp
     
 
