@@ -15,8 +15,8 @@
 
 - name: Copy config file
   copy:
-    src: telegraf.conf{ ansible_hostname }
-    dest: /usr/bin/telegraf/telegraf.conf
+    src: telegraf.conf.{{ ansible_hostname }}
+    dest: /etc/telegraf/telegraf.conf
 
 
 - name: Enable Telegraf
