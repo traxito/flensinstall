@@ -4,7 +4,6 @@
   copy:
     src: telegraf-1.17.3-1.x86_64.rpm
     dest: /tmp
-    
 
 - name: Install Telegraf rpm from a local file
   yum:
@@ -12,12 +11,20 @@
     state: present
   register: flens_installed
 
-
 - name: Copy config file
   copy:
     src: telegraf.conf.{{ ansible_hostname }}
     dest: /etc/telegraf/telegraf.conf
 
+- name: Copy linux config file
+  copy:
+    src: linux.conf.{{ ansible_hostname }}
+    dest: /etc/telegraf/telegraf.d/linux.conf
+
+- name: remove rpm file
+  file:
+    state: absent
+    dest: /tmp/telegraf-1.17.3-1.x86_64.rpm
 
 - name: Enable Telegraf
   service:
