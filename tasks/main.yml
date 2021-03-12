@@ -30,5 +30,6 @@
   service:
     name: telegraf
     enabled: yes
+  changed_when: flens_installed
   notify:
     - "restart telegraf"
