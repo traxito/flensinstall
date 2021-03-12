@@ -13,12 +13,12 @@
 
 - name: Copy config file
   copy:
-    src: telegraf.conf.{{ ansible_hostname }}
+    src: telegraf.conf.{{ ansible_hostname | lower }}
     dest: /etc/telegraf/telegraf.conf
 
 - name: Copy linux config file
   copy:
-    src: linux.conf.{{ ansible_hostname }}
+    src: linux.conf.{{ ansible_hostname  | lower }}
     dest: /etc/telegraf/telegraf.d/linux.conf
 
 - name: remove rpm file
